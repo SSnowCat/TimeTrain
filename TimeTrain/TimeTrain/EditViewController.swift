@@ -38,7 +38,7 @@ class EditViewController: UIViewController {
                     pickTimeString = formatter.string(from: date)
                     timeIntervalString = "现在"
                 }
-                let isfinish = false
+                let isfinish = "0"
                 storeInfo(theme: themeText.text!, time: pickTimeString, timeInterval: timeIntervalString, text: detailText.text,isFinish:isfinish)
             }
         }
@@ -88,7 +88,7 @@ class EditViewController: UIViewController {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         return appDelegate.persistentContainer.viewContext
     }
-    func storeInfo(theme:String, time:String, timeInterval:String, text:String,isFinish:Bool){
+    func storeInfo(theme:String, time:String, timeInterval:String, text:String,isFinish:String){
         let context = getContext()
         // 定义一个entity，这个entity一定要在xcdatamodeld中做好定义
         let entity = NSEntityDescription.entity(forEntityName: "TimeTrainInfo", in: context)

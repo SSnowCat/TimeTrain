@@ -22,10 +22,11 @@
 		108B8B0B1E6A563400D3969D /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108B8B091E6A563400D3969D /* CollectionViewCell.swift */; };
 		108B8B0C1E6A563400D3969D /* CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 108B8B0A1E6A563400D3969D /* CollectionViewCell.xib */; };
 		108B8B0F1E6A58F900D3969D /* pillModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108B8B0E1E6A58F900D3969D /* pillModel.swift */; };
+		D8A398B21E6DAE3F006EC17E /* InfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A398B11E6DAE3F006EC17E /* InfoTableViewCell.swift */; };
+		D8A398B51E6DB127006EC17E /* TimeTrainInfo+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A398B31E6DB127006EC17E /* TimeTrainInfo+CoreDataClass.swift */; };
+		D8A398B61E6DB127006EC17E /* TimeTrainInfo+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A398B41E6DB127006EC17E /* TimeTrainInfo+CoreDataProperties.swift */; };
 		D8A907DA1E683178001A39DF /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A907D91E683178001A39DF /* EditViewController.swift */; };
 		D8A907DD1E683C3E001A39DF /* TimeTrain.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D8A907DB1E683C3E001A39DF /* TimeTrain.xcdatamodeld */; };
-		D8A907E01E683CA0001A39DF /* TimeTrainInfo+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A907DE1E683CA0001A39DF /* TimeTrainInfo+CoreDataClass.swift */; };
-		D8A907E11E683CA0001A39DF /* TimeTrainInfo+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A907DF1E683CA0001A39DF /* TimeTrainInfo+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,10 +68,11 @@
 		108B8B091E6A563400D3969D /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		108B8B0A1E6A563400D3969D /* CollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollectionViewCell.xib; sourceTree = "<group>"; };
 		108B8B0E1E6A58F900D3969D /* pillModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = pillModel.swift; sourceTree = "<group>"; };
+		D8A398B11E6DAE3F006EC17E /* InfoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoTableViewCell.swift; sourceTree = "<group>"; };
+		D8A398B31E6DB127006EC17E /* TimeTrainInfo+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TimeTrainInfo+CoreDataClass.swift"; sourceTree = "<group>"; };
+		D8A398B41E6DB127006EC17E /* TimeTrainInfo+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TimeTrainInfo+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		D8A907D91E683178001A39DF /* EditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
 		D8A907DC1E683C3E001A39DF /* TimeTrain.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TimeTrain.xcdatamodel; sourceTree = "<group>"; };
-		D8A907DE1E683CA0001A39DF /* TimeTrainInfo+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TimeTrainInfo+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
-		D8A907DF1E683CA0001A39DF /* TimeTrainInfo+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TimeTrainInfo+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +103,8 @@
 		105F26CF1E5AB05A00BCE984 = {
 			isa = PBXGroup;
 			children = (
+				D8A398B31E6DB127006EC17E /* TimeTrainInfo+CoreDataClass.swift */,
+				D8A398B41E6DB127006EC17E /* TimeTrainInfo+CoreDataProperties.swift */,
 				105F26DA1E5AB05A00BCE984 /* TimeTrain */,
 				105F26EF1E5AB05A00BCE984 /* TimeTrainTests */,
 				105F26FA1E5AB05A00BCE984 /* TimeTrainUITests */,
@@ -123,10 +127,9 @@
 			children = (
 				108B8B0D1E6A58CF00D3969D /* pill */,
 				108B8B081E6A4B2700D3969D /* image */,
-				D8A907DE1E683CA0001A39DF /* TimeTrainInfo+CoreDataClass.swift */,
-				D8A907DF1E683CA0001A39DF /* TimeTrainInfo+CoreDataProperties.swift */,
 				105F26DB1E5AB05A00BCE984 /* AppDelegate.swift */,
 				105F26DD1E5AB05A00BCE984 /* ViewController.swift */,
+				D8A398B11E6DAE3F006EC17E /* InfoTableViewCell.swift */,
 				105F26DF1E5AB05A00BCE984 /* Main.storyboard */,
 				105F26E21E5AB05A00BCE984 /* Assets.xcassets */,
 				105F26E41E5AB05A00BCE984 /* LaunchScreen.storyboard */,
@@ -321,12 +324,13 @@
 				105F26DE1E5AB05A00BCE984 /* ViewController.swift in Sources */,
 				105F26DC1E5AB05A00BCE984 /* AppDelegate.swift in Sources */,
 				108B8B0F1E6A58F900D3969D /* pillModel.swift in Sources */,
+				D8A398B61E6DB127006EC17E /* TimeTrainInfo+CoreDataProperties.swift in Sources */,
 				108B8B0B1E6A563400D3969D /* CollectionViewCell.swift in Sources */,
 				D8A907DD1E683C3E001A39DF /* TimeTrain.xcdatamodeld in Sources */,
-				D8A907E01E683CA0001A39DF /* TimeTrainInfo+CoreDataClass.swift in Sources */,
 				D8A907DA1E683178001A39DF /* EditViewController.swift in Sources */,
 				102BE1BF1E5F0F2300DF8449 /* thirdViewController.swift in Sources */,
-				D8A907E11E683CA0001A39DF /* TimeTrainInfo+CoreDataProperties.swift in Sources */,
+				D8A398B51E6DB127006EC17E /* TimeTrainInfo+CoreDataClass.swift in Sources */,
+				D8A398B21E6DAE3F006EC17E /* InfoTableViewCell.swift in Sources */,
 				102BE1BD1E5F0C0100DF8449 /* secondView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
