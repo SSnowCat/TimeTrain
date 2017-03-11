@@ -12,6 +12,7 @@ import CoreData
 class thirdViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
     var infoList = [[String:String]]()
     @IBOutlet weak var infoTable: UITableView!
+    @IBOutlet weak var isFinishImg: UIImageView!
 
     
     func getContext () -> NSManagedObjectContext {
@@ -55,6 +56,15 @@ class thirdViewController: UIViewController,UITableViewDataSource,UITableViewDel
         let theme = infoList[indexPath.row]["theme"]
         let time = infoList[indexPath.row]["time"]
         cell.themeLabel.text = theme!
+        let isFinished = infoList[indexPath.row]["isFinish"]
+        print(isFinished!)
+        if isFinished == "0" {
+            cell.isFinishImg.image = #imageLiteral(resourceName: "t1")
+        }else{
+            cell.isFinishImg.image = #imageLiteral(resourceName: "t2")
+        }
+       
+        
         cell.timeLabel.text = time!
         
         return cell

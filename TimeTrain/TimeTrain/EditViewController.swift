@@ -15,6 +15,7 @@ class EditViewController: UIViewController {
     @IBOutlet weak var detailText: UITextView!
     @IBOutlet weak var time: UIDatePicker!
     var timeIntervalString = ""
+    var TimeIntervaNum:Int?
     var pickTimeString = ""
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,7 +39,7 @@ class EditViewController: UIViewController {
                     pickTimeString = formatter.string(from: date)
                     timeIntervalString = "现在"
                 }
-                let isfinish = "0"
+                let isfinish = "1"
                 storeInfo(theme: themeText.text!, time: pickTimeString, timeInterval: timeIntervalString, text: detailText.text,isFinish:isfinish)
             }
         }
@@ -59,25 +60,36 @@ class EditViewController: UIViewController {
         let hour = diffComponents.hour!
         let minute = diffComponents.minute!
         let seconds = diffComponents.second!
+        print(diffComponents.day)
+       
+      
+        
+        // date1 and date2 are different in Optional(31)years Optional(6)months and Optional(31)days
         if year == 0 {
             if month == 0 {
                 if day == 0 {
                     if hour == 0 {
                         if minute == 0 {
+                            TimeIntervaNum = 10;
                             timeIntervalString = "现在"
                         }else{
+                            TimeIntervaNum = seconds + 60*minute
                             timeIntervalString = "\(minute)分\(seconds)秒"
                         }
                     }else{
+                        TimeIntervaNum = seconds + 60*minute + 3600*hour
                         timeIntervalString = "\(hour)小时\(minute)分\(seconds)秒"
                     }
                 }else{
+                    TimeIntervaNum = seconds + 60*minute + 3600*hour + 3600*24*day
                     timeIntervalString = "\(day)天\(hour)小时\(minute)分\(seconds)秒"
                 }
             }else{
+                TimeIntervaNum = seconds + 60*minute + 3600*hour + 3600*24*day + 3600*24*30*month
                 timeIntervalString = "\(month)月\(day)天\(hour)小时\(minute)分\(seconds)秒"
             }
         }else{
+            TimeIntervaNum = seconds + 60*minute + 3600*hour + 3600*24*day + 3600*24*30*12*year
             timeIntervalString = "\(year)年\(month)月\(day)天\(hour)小时\(minute)分\(seconds)秒"
         }
         print(timeIntervalString)
@@ -100,14 +112,18 @@ class EditViewController: UIViewController {
         timeTrainInfo.setValue(timeInterval, forKey: "timeInterval")
         timeTrainInfo.setValue(text, forKey: "text")
         timeTrainInfo.setValue(isFinish, forKey: "isFinish")
-        
-       
-               
-      
-        
+
         
         do {
+            let sendNoti:sendNotification? = sendNotification()
+            if timeInterval == "现在" {
+                sendNoti?.sendNotificationWithSava(a: 10)
+            }else{
+                print(TimeIntervaNum)
+                sendNoti?.sendNotificationWithSava(a: TimeIntervaNum!)
+            }
             try context.save()
+            
             print("saved")
         }catch{
             print(error)

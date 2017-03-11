@@ -12,6 +12,7 @@ class InfoTableViewCell: UITableViewCell {
 
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var themeLabel: UILabel!
+    @IBOutlet weak var isFinishImg: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

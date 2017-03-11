@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:TimeTrain.xcodeproj">
+      location = "self:">
    </FileRef>
 </Workspace>

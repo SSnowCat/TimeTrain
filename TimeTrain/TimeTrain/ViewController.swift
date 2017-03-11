@@ -14,13 +14,13 @@ class ViewController: UIViewController {
     @IBAction func cancel(segue:UIStoryboardSegue){
         
     }
-    
+
     override func viewDidLoad() {
-        
+       
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
-    
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -56,8 +56,7 @@ class ViewController: UIViewController {
         
         let notificationContent = { () -> UNMutableNotificationContent in
             
-            let url:URL
-            url = MediaType.audioFullLocal.url()
+            let url = URL(fileURLWithPath: "testing.m4a")
             
             let attachment: UNNotificationAttachment?
             do {
@@ -68,9 +67,9 @@ class ViewController: UIViewController {
             }
             
             let content = UNMutableNotificationContent()
-            content.title = NSString.localizedUserNotificationString(forKey: "Here come dat boi!", arguments: nil)
-            content.subtitle = NSString.localizedUserNotificationString(forKey: "Subtitle", arguments: nil)
-            content.body = NSString.localizedUserNotificationString(forKey: "Oh snap!", arguments: nil)
+            content.title = NSString.localizedUserNotificationString(forKey: "你的药到了!", arguments: nil)
+            content.subtitle = NSString.localizedUserNotificationString(forKey: "快来吃药啦", arguments: nil)
+            content.body = NSString.localizedUserNotificationString(forKey: "是时候检查主人的任务完成没有啦", arguments: nil)
             content.sound = UNNotificationSound.default()
             content.categoryIdentifier = NotificationType.serviceExtension.rawValue
             if let attachment = attachment {
@@ -87,8 +86,9 @@ class ViewController: UIViewController {
         }
     }
     
-    
-    
-    
+
+
 }
+
+
 

@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import UserNotifications
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -19,9 +20,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         let view = window?.rootViewController?.view
         view?.backgroundColor = UIColor(patternImage: UIImage(named: "1.jpg")!)
+        registorForNotifications()
+        
+       
         return true
     }
-
+   
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
@@ -86,4 +90,64 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
 }
+
+extension AppDelegate {
+    
+    
+    func registorForNotifications() {
+        let center = UNUserNotificationCenter.current()
+        center.requestAuthorization(options: [.alert, .sound]) { (granted, error) in
+            // Enable or disable features based on authorization.
+        }
+        center.delegate = self
+        
+        let actionWaddup = UNNotificationAction(identifier: ActionType.waddup.rawValue, title: "Waddup", options: [.foreground])
+        let actionHolla = UNNotificationAction(identifier: ActionType.holla.rawValue, title: "Holla", options: [.foreground])
+        let actionYo = UNNotificationAction(identifier: ActionType.yo.rawValue, title: "Yo", options: [.foreground])
+        let actionWord = UNNotificationAction(identifier: ActionType.word.rawValue, title: "Word", options: [.foreground])
+        let actionSup = UNNotificationAction(identifier: ActionType.sup.rawValue, title: "Sup", options: [.foreground])
+        let actions = [actionWaddup, actionHolla, actionYo, actionWord, actionSup]
+        let categoryOptions = UNNotificationCategoryOptions(rawValue: 0)
+        //<<<<<<< HEAD
+        //        let plainCategory = UNNotificationCategory(identifier: NotificationType.plain.rawValue, actions: [actionWaddup], intentIdentifiers: [], options: categoryOptions)
+        //        let serviceExtensionCategory = UNNotificationCategory(identifier: NotificationType.serviceExtension.rawValue, actions: [actionWaddup], intentIdentifiers: [], options: categoryOptions)
+        //        let contentExtensionCategory = UNNotificationCategory(identifier: NotificationType.contentExtension.rawValue, actions: [actionWaddup], intentIdentifiers: [], options: categoryOptions)
+        //        center.setNotificationCategories(Set([plainCategory, serviceExtensionCategory, contentExtensionCategory]))
+        //=======
+        let plainCategory = UNNotificationCategory(identifier: NotificationType.plain.rawValue, actions: actions, intentIdentifiers: [], options: categoryOptions)
+        let serviceExtensionCategory = UNNotificationCategory(identifier: NotificationType.serviceExtension.rawValue, actions: actions, intentIdentifiers: [], options: categoryOptions)
+        let contentExtensionCategory = UNNotificationCategory(identifier: NotificationType.contentExtension.rawValue, actions: actions, intentIdentifiers: [], options: categoryOptions)
+        let animatedContentExtensionCategory = UNNotificationCategory(identifier: NotificationType.animatedContentExtension.rawValue, actions: actions, intentIdentifiers: [], options: categoryOptions)
+        center.setNotificationCategories(Set([plainCategory, serviceExtensionCategory, contentExtensionCategory, animatedContentExtensionCategory]))
+        //>>>>>>> a126a57... Exercise capabilities
+        
+    }
+    
+}
+
+extension AppDelegate: UNUserNotificationCenterDelegate {
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Swift.Void) {
+        guard let action = ActionType(rawValue: response.actionIdentifier) else {
+            completionHandler()
+            return
+        }
+        
+        switch action {
+        case .waddup, .holla, .yo, .word, .sup:
+            if let viewController = window?.rootViewController as? ViewController {
+                           }
+            else {
+                           }
+            completionHandler()
+        }
+    }
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        completionHandler([.alert])
+    }
+}
+
+
+
 
