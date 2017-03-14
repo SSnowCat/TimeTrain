@@ -86,6 +86,19 @@ class ViewController: UIViewController {
         }
     }
     
+    @IBAction func animationFunc(_ sender: Any) {
+        let mainStoryboard = UIStoryboard(name:"Main", bundle:nil)
+        let viewController = mainStoryboard.instantiateViewController(withIdentifier: "AnimationView")
+        self.present(viewController, animated: true, completion:nil)
+        let time: TimeInterval = 10.0
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + time) {
+            //code
+            print("10 秒后输出")
+            self.dismiss(animated: true, completion:nil)
+        }
+        
+       
+    }
 
 
 }

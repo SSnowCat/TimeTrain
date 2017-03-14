@@ -60,7 +60,7 @@ class EditViewController: UIViewController {
         let hour = diffComponents.hour!
         let minute = diffComponents.minute!
         let seconds = diffComponents.second!
-        print(diffComponents.day)
+        
        
       
         
@@ -119,7 +119,6 @@ class EditViewController: UIViewController {
             if timeInterval == "现在" {
                 sendNoti?.sendNotificationWithSava(a: 10)
             }else{
-                print(TimeIntervaNum)
                 sendNoti?.sendNotificationWithSava(a: TimeIntervaNum!)
             }
             try context.save()

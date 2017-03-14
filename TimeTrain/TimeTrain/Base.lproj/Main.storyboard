@@ -7,6 +7,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -45,7 +46,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <connections>
-                                    <action selector="sendNotification:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aeQ-Qc-N75"/>
+                                    <action selector="animationFunc:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ca5-3O-FX3"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mtd-dC-tPE">
@@ -94,7 +95,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="52"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3An-32-u3a" id="2x8-8W-LIg">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="52"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="51"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qjm-Wm-BEe">
@@ -342,8 +343,99 @@
             </objects>
             <point key="canvasLocation" x="105" y="-188"/>
         </scene>
+        <!--Animation View Controller-->
+        <scene sceneID="rQj-Xw-I52">
+            <objects>
+                <viewController storyboardIdentifier="AnimationView" id="5pC-hQ-Zmc" customClass="AnimationViewController" customModule="TimeTrain" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="tL2-gH-LuW"/>
+                        <viewControllerLayoutGuide type="bottom" id="vG6-g6-UD5"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="z4K-nL-W1u">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MSRInfo_Main_Cup_02" translatesAutoresizingMaskIntoConstraints="NO" id="E2t-XE-x5T">
+                                <rect key="frame" x="127" y="321" width="122" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="jJY-Ua-NJF"/>
+                                    <constraint firstAttribute="width" constant="122" id="viN-0J-vGW"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MSRInfo_Main_Cup_01" translatesAutoresizingMaskIntoConstraints="NO" id="AJv-vt-okF">
+                                <rect key="frame" x="127" y="351" width="122" height="166"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="122" id="K8G-Dl-dmi"/>
+                                    <constraint firstAttribute="height" constant="166" id="giM-lI-3Jl"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AppIcon60x60" translatesAutoresizingMaskIntoConstraints="NO" id="mz3-pC-4xg" customClass="app">
+                                <rect key="frame" x="158" y="170" width="60" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="2tU-1B-Ljd"/>
+                                    <constraint firstAttribute="width" constant="60" id="fE4-QK-pca"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="30"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5hb-V9-dZj">
+                                <rect key="frame" x="113" y="541" width="150" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="EJP-2K-boq"/>
+                                    <constraint firstAttribute="width" constant="150" id="LT3-22-RyT"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <state key="normal" title="Restart">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="restart:" destination="5pC-hQ-Zmc" eventType="touchUpInside" id="JUE-gM-LqC"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="主人你的胶囊到了！" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N1G-0E-FQg">
+                                <rect key="frame" x="48" y="78" width="279" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="279" id="bJh-n2-ZHF"/>
+                                    <constraint firstAttribute="height" constant="44" id="r0F-ur-AMv"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.4471247196" blue="0.29815232749999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="N1G-0E-FQg" firstAttribute="centerX" secondItem="z4K-nL-W1u" secondAttribute="centerX" id="2W4-OL-91g"/>
+                            <constraint firstItem="mz3-pC-4xg" firstAttribute="centerX" secondItem="z4K-nL-W1u" secondAttribute="centerX" id="3qr-nS-SLE"/>
+                            <constraint firstItem="5hb-V9-dZj" firstAttribute="top" secondItem="AJv-vt-okF" secondAttribute="bottom" constant="24" id="BjF-wc-w8s"/>
+                            <constraint firstItem="E2t-XE-x5T" firstAttribute="centerX" secondItem="z4K-nL-W1u" secondAttribute="centerX" id="Cve-1m-5TM"/>
+                            <constraint firstItem="AJv-vt-okF" firstAttribute="top" secondItem="E2t-XE-x5T" secondAttribute="bottom" constant="-14" id="DXx-Ud-wWw"/>
+                            <constraint firstItem="N1G-0E-FQg" firstAttribute="centerY" secondItem="z4K-nL-W1u" secondAttribute="centerY" multiplier="0.3" id="doV-ov-j2c"/>
+                            <constraint firstItem="AJv-vt-okF" firstAttribute="centerY" secondItem="z4K-nL-W1u" secondAttribute="centerY" multiplier="1.3" id="gjw-bb-k5u"/>
+                            <constraint firstItem="mz3-pC-4xg" firstAttribute="centerY" secondItem="z4K-nL-W1u" secondAttribute="centerY" multiplier="0.6" id="ruM-lT-FZw"/>
+                            <constraint firstItem="5hb-V9-dZj" firstAttribute="centerX" secondItem="z4K-nL-W1u" secondAttribute="centerX" id="xT5-ik-fHE"/>
+                            <constraint firstItem="AJv-vt-okF" firstAttribute="centerX" secondItem="z4K-nL-W1u" secondAttribute="centerX" id="yX5-lo-9aC"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="cup" destination="AJv-vt-okF" id="PzJ-oY-qWa"/>
+                        <outlet property="lid" destination="E2t-XE-x5T" id="vXH-sR-YqH"/>
+                        <outlet property="restartBtn" destination="5hb-V9-dZj" id="vtR-5v-8uq"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Plk-JB-e2f" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-166" y="811"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="AppIcon60x60" width="60" height="60"/>
+        <image name="MSRInfo_Main_Cup_01" width="122" height="166"/>
+        <image name="MSRInfo_Main_Cup_02" width="122" height="44"/>
         <image name="h2" width="70" height="70"/>
         <image name="t1" width="70" height="74"/>
         <image name="t2" width="70" height="70"/>

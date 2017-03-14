@@ -24,7 +24,6 @@ class sendNotification: NSObject {
             
             let attachment: UNNotificationAttachment?
             do {
-                
                 attachment = try UNNotificationAttachment(identifier: notificationAttachmentId, url: url, options: nil)
             } catch {
                 attachment = nil
