@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class EditViewController: UIViewController {
+class EditViewController: UIViewController ,UITextViewDelegate{
 
     @IBOutlet weak var themeText: UITextField!
     @IBOutlet weak var detailText: UITextView!
@@ -19,8 +19,17 @@ class EditViewController: UIViewController {
     var pickTimeString = ""
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view?.backgroundColor = UIColor(patternImage: UIImage(named: "底.png")!)
+        detailText.delegate = self
         // Do any additional setup after loading the view.
     }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+   
+    
     @IBAction func save(_ sender: Any) {
         if (themeText.text?.isEmpty)! {
             let alert = UIAlertController(title: "提示", message: "主题为空", preferredStyle: .alert)
@@ -39,10 +48,12 @@ class EditViewController: UIViewController {
                     pickTimeString = formatter.string(from: date)
                     timeIntervalString = "现在"
                 }
-                let isfinish = "1"
+                let isfinish = "0"
                 storeInfo(theme: themeText.text!, time: pickTimeString, timeInterval: timeIntervalString, text: detailText.text,isFinish:isfinish)
-            }
+               
+                           }
         }
+        myPillCollectionView?.reloadData()
         self.dismiss(animated: true, completion: nil)
     }
     @IBAction func changeValues(_ sender: Any) {
@@ -122,7 +133,6 @@ class EditViewController: UIViewController {
                 sendNoti?.sendNotificationWithSava(a: TimeIntervaNum!)
             }
             try context.save()
-            
             print("saved")
         }catch{
             print(error)

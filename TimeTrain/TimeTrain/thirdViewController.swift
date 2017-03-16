@@ -19,6 +19,20 @@ class thirdViewController: UIViewController,UITableViewDataSource,UITableViewDel
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         return appDelegate.persistentContainer.viewContext
     }
+    @IBAction func editTable(_ sender: UIButton) {
+        sender.setTitle(infoTable.isEditing ? "Edit" : "Done", for: .normal)
+        infoTable.setEditing(!infoTable.isEditing, animated: true)
+            
+
+    }
+    
+    @IBAction func cancelToHistory(segue: UIStoryboardSegue)
+    {
+        
+    }
+    override func viewDidLoad() {
+        
+    }
     func getInfo(){
         
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "TimeTrainInfo")
@@ -45,6 +59,28 @@ class thirdViewController: UIViewController,UITableViewDataSource,UITableViewDel
         print(infoList.count)
         return infoList.count
     }
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            // Delete the row from the data source
+            infoList.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        } else if editingStyle == .insert {
+            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+        }
+    }
+    func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        let name = infoList.remove(at: sourceIndexPath.row)
+        infoList.insert(name, at: destinationIndexPath.row)
+    }
+
+   
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 50
@@ -59,17 +95,17 @@ class thirdViewController: UIViewController,UITableViewDataSource,UITableViewDel
         let isFinished = infoList[indexPath.row]["isFinish"]
         print(isFinished!)
         if isFinished == "0" {
-            cell.isFinishImg.image = #imageLiteral(resourceName: "t1")
+            cell.isFinishImg.image = #imageLiteral(resourceName: "完成部分的")
         }else{
-            cell.isFinishImg.image = #imageLiteral(resourceName: "t2")
+            cell.isFinishImg.image = #imageLiteral(resourceName: "完成的")
         }
-       
-        
         cell.timeLabel.text = time!
         
         return cell
     }
-    override func viewWillAppear(_ animated: Bool) {
+    
+  
+      override func viewWillAppear(_ animated: Bool) {
         infoList = []
         DispatchQueue.global().async {
             
@@ -83,5 +119,26 @@ class thirdViewController: UIViewController,UITableViewDataSource,UITableViewDel
         }
 
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        let pillmodel = pillModel()
+        if let svc = segue.destination as? DetailHistoryViewController {
+            //which row?
+            if let indexPath = infoTable.indexPath(for: sender as! UITableViewCell) {
+                pillmodel.title = infoList[indexPath.row]["theme"]
+                pillmodel.time = infoList[indexPath.row]["time"]
+                pillmodel.detail = infoList[indexPath.row]["text"]
+                pillmodel.isfinish = infoList[indexPath.row]["isFinish"]
+                svc.pillmodel = pillmodel
+                
+                
+            }
+        }
+        
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+    }
+
 
 }

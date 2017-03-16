@@ -13,6 +13,7 @@ class CollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     
     
+    @IBOutlet weak var circleView: UIView!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var timeLabel: UILabel!
     
@@ -20,7 +21,10 @@ class CollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
         // Initialization code
 
-        self.layer.cornerRadius = 46
+        self.layer.cornerRadius = 48
+        circleView.layer.cornerRadius = 30
+        circleView.layer.borderColor = UIColor.white.cgColor
+        circleView.layer.borderWidth = 3
         
     }
     

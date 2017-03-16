@@ -15,7 +15,10 @@ class pillModel: NSObject {
     var timeInterval:String?
     /**完成时间*/
     var time:String?
-    
+    /**详细内容*/
+    var detail:String?
+    /**是否完成*/
+    var isfinish:String?
  
 
 }

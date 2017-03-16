@@ -34,6 +34,7 @@ class sendNotification: NSObject {
             content.body = NSString.localizedUserNotificationString(forKey: "是时候检查主人的任务完成没有啦", arguments: nil)
             content.sound = UNNotificationSound.default()
             content.categoryIdentifier = NotificationType.serviceExtension.rawValue
+            
             if let attachment = attachment {
                 content.attachments = [attachment]
             }
@@ -49,6 +50,9 @@ class sendNotification: NSObject {
         
         
     }
+   
+    
+    
 
 
 }

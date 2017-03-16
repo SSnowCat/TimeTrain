@@ -8,12 +8,13 @@
 
 import UIKit
 import CoreData
-
-class secondView: UIViewController {
+var myPillCollectionView:UICollectionView?
+class secondView: UIViewController,UIGestureRecognizerDelegate {
 
     
-    var myPillCollectionView:UICollectionView?
+   
     var searchResults:[Any] = []
+    var detailView:DetailPillViewView? = nil
     var dataSource = NSMutableArray()
     @IBAction func cancelToCreateTrain(segue:UIStoryboardSegue){
         
@@ -21,15 +22,17 @@ class secondView: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view?.backgroundColor = UIColor(patternImage: UIImage(named: "底.png")!)
         
         
         DispatchQueue.global().async {
             
-            self.getInfo()
+           
             
             // 主线程异步执行（主线程同步可能会死锁）
             DispatchQueue.main.async(execute: {
-                self.myPillCollectionView?.reloadData()
+                self.getInfo()
+                myPillCollectionView?.reloadData()
             })
         }
        
@@ -38,6 +41,10 @@ class secondView: UIViewController {
 
         // Do any additional setup after loading the view.
     }
+    let freshData:()->Bool = {
+        return ((myPillCollectionView?.reloadData()) != nil)
+    }
+    
     func getContext () -> NSManagedObjectContext {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         return appDelegate.persistentContainer.viewContext
@@ -60,10 +67,8 @@ class secondView: UIViewController {
                 model.timeInterval = p.value(forKey: "timeInterval") as! String?
                 let swStr = p.value(forKey: "time") as! NSString
                 let str1 = swStr.substring(with: NSMakeRange(9, 8))
-                
+                model.detail = p.value(forKey: "text") as! String?
                 model.time = str1
-                
-                
                 self.dataSource.add(model)
                 
             }
@@ -88,17 +93,18 @@ class secondView: UIViewController {
     func createPillCollectionView(){
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.minimumLineSpacing = 10.0
-        self.myPillCollectionView = UICollectionView(frame: self.view.bounds, collectionViewLayout:flowLayout)
-        self.myPillCollectionView?.dataSource = self
-        self.myPillCollectionView?.delegate = self
-        self.myPillCollectionView?.backgroundColor = UIColor.white
-        self.view.addSubview(self.myPillCollectionView!)
-        self.view.sendSubview(toBack: self.myPillCollectionView!)
+        myPillCollectionView = UICollectionView(frame: self.view.bounds, collectionViewLayout:flowLayout)
+        myPillCollectionView?.dataSource = self
+        myPillCollectionView?.delegate = self
+        myPillCollectionView?.backgroundColor = UIColor.white
+        myPillCollectionView?.backgroundColor? = UIColor(patternImage: UIImage(named: "底.png")!)
+        self.view.addSubview(myPillCollectionView!)
+        self.view.sendSubview(toBack: myPillCollectionView!)
         
         
         
         let nib = UINib(nibName:"CollectionViewCell",bundle:nil)
-        self.myPillCollectionView?.register(nib, forCellWithReuseIdentifier: "CollectionViewCell")
+        myPillCollectionView?.register(nib, forCellWithReuseIdentifier: "CollectionViewCell")
     }
     
 
@@ -121,14 +127,13 @@ extension secondView:UICollectionViewDelegate,UICollectionViewDelegateFlowLayout
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CollectionViewCell", for: indexPath) as! CollectionViewCell
-        
+        cell.setNeedsLayout()
         let model = dataSource.object(at: indexPath.item) as! pillModel
-        print(model)
-        print("call for cell")
+        
         
         cell.timeLabel.text = model.time
         cell.titleLabel.text = model.title
-      
+        
         
         cell.layer.borderColor = UIColor.gray.cgColor
         cell.layer.borderWidth = 0.3
@@ -137,6 +142,7 @@ extension secondView:UICollectionViewDelegate,UICollectionViewDelegateFlowLayout
         return cell
         
     }
+    
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: 121, height: 180)
@@ -148,18 +154,45 @@ extension secondView:UICollectionViewDelegate,UICollectionViewDelegateFlowLayout
     
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("you chosen one")
+       
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CollectionViewCell", for: indexPath) as! CollectionViewCell
         cell.layer.cornerRadius = 46
         cell.backgroundColor = UIColor.yellow
-        let alert = UIAlertController(title: "点击", message: "you click me", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "确定", style: .cancel, handler: nil))
-        present(alert, animated: true, completion: nil)
+        let model = dataSource.object(at: indexPath.item) as! pillModel
+        detailView = DetailPillViewView()
+        detailView?.titletext = model.title
+        detailView?.textDetail = model.detail
+        detailView?.time = model.time
+        detailView?.view.frame = CGRect(x: 10, y: 50, width: 240, height: 400)
+        detailView?.view.alpha = 0.9
+  
+        
+        
+        let swipeGesture = UISwipeGestureRecognizer(target: self, action: #selector(self.dismissDetailView))
+        swipeGesture.delegate = self
+        swipeGesture.direction = UISwipeGestureRecognizerDirection.up
+        detailView?.view.isUserInteractionEnabled = true
+        detailView?.view.addGestureRecognizer(swipeGesture)
+        self.view.addSubview((detailView?.view)!)
+        
+        
 
         
     }
-    
-    
+    func dismissDetailView(sender:UITapGestureRecognizer){
+        detailView?.dismiss(animated: true, completion: nil)
+        detailView?.view.removeFromSuperview()
+        detailView?.removeFromParentViewController()
+        
+    }
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+        let touchPoint = touch.location(in: detailView?.view)
+        if ((detailView?.view.frame)?.contains(touchPoint))!{
+            return true
+        }else{
+            return true
+        }
+    }
     
     
     

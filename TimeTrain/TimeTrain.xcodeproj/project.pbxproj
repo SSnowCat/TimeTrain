@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		101513241E7A4B6C00C95FEE /* 完成的.png in Resources */ = {isa = PBXBuildFile; fileRef = 101513211E7A4B6C00C95FEE /* 完成的.png */; };
+		101513251E7A4B6C00C95FEE /* 未完成的.png in Resources */ = {isa = PBXBuildFile; fileRef = 101513221E7A4B6C00C95FEE /* 未完成的.png */; };
+		101513271E7A4E8100C95FEE /* 底.png in Resources */ = {isa = PBXBuildFile; fileRef = 101513261E7A4E8100C95FEE /* 底.png */; };
+		1015132A1E7A55DC00C95FEE /* DetailPillViewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101513281E7A55DC00C95FEE /* DetailPillViewView.swift */; };
+		1015132B1E7A55DC00C95FEE /* DetailPillViewView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 101513291E7A55DC00C95FEE /* DetailPillViewView.xib */; };
+		101513351E7A99A300C95FEE /* DetailHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101513341E7A99A300C95FEE /* DetailHistoryViewController.swift */; };
 		102BE1AF1E5F003B00DF8449 /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 102BE1AE1E5F003B00DF8449 /* 1.jpg */; };
 		102BE1BD1E5F0C0100DF8449 /* secondView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 102BE1BC1E5F0C0100DF8449 /* secondView.swift */; };
 		102BE1BF1E5F0F2300DF8449 /* thirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 102BE1BE1E5F0F2300DF8449 /* thirdViewController.swift */; };
@@ -24,7 +30,6 @@
 		108B8B0B1E6A563400D3969D /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108B8B091E6A563400D3969D /* CollectionViewCell.swift */; };
 		108B8B0C1E6A563400D3969D /* CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 108B8B0A1E6A563400D3969D /* CollectionViewCell.xib */; };
 		108B8B0F1E6A58F900D3969D /* pillModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108B8B0E1E6A58F900D3969D /* pillModel.swift */; };
-		108FCC4E1E71794E0052188A /* LocalNotificationUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108FCC4D1E71794E0052188A /* LocalNotificationUtils.swift */; };
 		108FCC501E7189880052188A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108FCC4F1E7189880052188A /* Constants.swift */; };
 		D8A398B21E6DAE3F006EC17E /* InfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A398B11E6DAE3F006EC17E /* InfoTableViewCell.swift */; };
 		D8A398B51E6DB127006EC17E /* TimeTrainInfo+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A398B31E6DB127006EC17E /* TimeTrainInfo+CoreDataClass.swift */; };
@@ -51,6 +56,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		101513211E7A4B6C00C95FEE /* 完成的.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "完成的.png"; sourceTree = "<group>"; };
+		101513221E7A4B6C00C95FEE /* 未完成的.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "未完成的.png"; sourceTree = "<group>"; };
+		101513261E7A4E8100C95FEE /* 底.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "底.png"; sourceTree = "<group>"; };
+		101513281E7A55DC00C95FEE /* DetailPillViewView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailPillViewView.swift; sourceTree = "<group>"; };
+		101513291E7A55DC00C95FEE /* DetailPillViewView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailPillViewView.xib; sourceTree = "<group>"; };
+		101513341E7A99A300C95FEE /* DetailHistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailHistoryViewController.swift; sourceTree = "<group>"; };
 		102BE1AE1E5F003B00DF8449 /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpg; sourceTree = "<group>"; };
 		102BE1BC1E5F0C0100DF8449 /* secondView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = secondView.swift; sourceTree = "<group>"; };
 		102BE1BE1E5F0F2300DF8449 /* thirdViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = thirdViewController.swift; sourceTree = "<group>"; };
@@ -74,7 +85,6 @@
 		108B8B091E6A563400D3969D /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		108B8B0A1E6A563400D3969D /* CollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollectionViewCell.xib; sourceTree = "<group>"; };
 		108B8B0E1E6A58F900D3969D /* pillModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = pillModel.swift; sourceTree = "<group>"; };
-		108FCC4D1E71794E0052188A /* LocalNotificationUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalNotificationUtils.swift; sourceTree = "<group>"; };
 		108FCC4F1E7189880052188A /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		108FCC511E719D1A0052188A /* testing.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = testing.m4a; sourceTree = "<group>"; };
 		D8A398B11E6DAE3F006EC17E /* InfoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoTableViewCell.swift; sourceTree = "<group>"; };
@@ -148,9 +158,9 @@
 				102BE1BE1E5F0F2300DF8449 /* thirdViewController.swift */,
 				D8A907D91E683178001A39DF /* EditViewController.swift */,
 				D8A907DB1E683C3E001A39DF /* TimeTrain.xcdatamodeld */,
-				108FCC4D1E71794E0052188A /* LocalNotificationUtils.swift */,
 				106F02C51E741238000B5672 /* sendNotification.swift */,
 				107061571E77DB9100A7439C /* AnimationViewController.swift */,
+				101513341E7A99A300C95FEE /* DetailHistoryViewController.swift */,
 			);
 			path = TimeTrain;
 			sourceTree = "<group>";
@@ -178,6 +188,9 @@
 			children = (
 				1035E6391E6D6A7E00D150C0 /* h1.png */,
 				1035E63B1E6D6A7E00D150C0 /* h3.png */,
+				101513211E7A4B6C00C95FEE /* 完成的.png */,
+				101513261E7A4E8100C95FEE /* 底.png */,
+				101513221E7A4B6C00C95FEE /* 未完成的.png */,
 				102BE1AE1E5F003B00DF8449 /* 1.jpg */,
 			);
 			name = image;
@@ -190,6 +203,8 @@
 				108B8B0A1E6A563400D3969D /* CollectionViewCell.xib */,
 				108B8B0E1E6A58F900D3969D /* pillModel.swift */,
 				102BE1BC1E5F0C0100DF8449 /* secondView.swift */,
+				101513281E7A55DC00C95FEE /* DetailPillViewView.swift */,
+				101513291E7A55DC00C95FEE /* DetailPillViewView.xib */,
 			);
 			name = pill;
 			sourceTree = "<group>";
@@ -304,7 +319,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				101513241E7A4B6C00C95FEE /* 完成的.png in Resources */,
+				1015132B1E7A55DC00C95FEE /* DetailPillViewView.xib in Resources */,
+				101513271E7A4E8100C95FEE /* 底.png in Resources */,
 				1035E6401E6D6A7E00D150C0 /* h3.png in Resources */,
+				101513251E7A4B6C00C95FEE /* 未完成的.png in Resources */,
 				1035E63E1E6D6A7E00D150C0 /* h1.png in Resources */,
 				105F26E61E5AB05A00BCE984 /* LaunchScreen.storyboard in Resources */,
 				105F26E31E5AB05A00BCE984 /* Assets.xcassets in Resources */,
@@ -335,6 +354,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				101513351E7A99A300C95FEE /* DetailHistoryViewController.swift in Sources */,
 				105F26DE1E5AB05A00BCE984 /* ViewController.swift in Sources */,
 				105F26DC1E5AB05A00BCE984 /* AppDelegate.swift in Sources */,
 				108B8B0F1E6A58F900D3969D /* pillModel.swift in Sources */,
@@ -342,12 +362,12 @@
 				106F02C61E741238000B5672 /* sendNotification.swift in Sources */,
 				108B8B0B1E6A563400D3969D /* CollectionViewCell.swift in Sources */,
 				D8A907DD1E683C3E001A39DF /* TimeTrain.xcdatamodeld in Sources */,
-				108FCC4E1E71794E0052188A /* LocalNotificationUtils.swift in Sources */,
 				108FCC501E7189880052188A /* Constants.swift in Sources */,
 				D8A907DA1E683178001A39DF /* EditViewController.swift in Sources */,
 				102BE1BF1E5F0F2300DF8449 /* thirdViewController.swift in Sources */,
 				D8A398B51E6DB127006EC17E /* TimeTrainInfo+CoreDataClass.swift in Sources */,
 				107061581E77DB9100A7439C /* AnimationViewController.swift in Sources */,
+				1015132A1E7A55DC00C95FEE /* DetailPillViewView.swift in Sources */,
 				D8A398B21E6DAE3F006EC17E /* InfoTableViewCell.swift in Sources */,
 				102BE1BD1E5F0C0100DF8449 /* secondView.swift in Sources */,
 			);

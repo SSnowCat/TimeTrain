@@ -21,5 +21,5 @@ extension TimeTrainInfo {
     @NSManaged public var theme: String?
     @NSManaged public var time: String?
     @NSManaged public var timeInterval: String?
-
+  
 }

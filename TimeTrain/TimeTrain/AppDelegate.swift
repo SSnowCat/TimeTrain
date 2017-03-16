@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         let view = window?.rootViewController?.view
-        view?.backgroundColor = UIColor(patternImage: UIImage(named: "1.jpg")!)
+        view?.backgroundColor = UIColor(patternImage: UIImage(named: "底.png")!)
         registorForNotifications()
         
        
@@ -127,21 +127,31 @@ extension AppDelegate {
 
 extension AppDelegate: UNUserNotificationCenterDelegate {
     
+    func application(_ application: UIApplication,didReceive notification: UILocalNotification) {
+        //设定Badge数目
+        UIApplication.shared.applicationIconBadgeNumber = 0
+        
+        let info = notification.userInfo as! [String:Int]
+        let number = info["ItemID"]
+        
+        let alertController = UIAlertController(title: "本地通知",
+                                                message: "消息内容：\(notification.alertBody)用户数据：\(number)",
+            preferredStyle: .alert)
+        
+        self.window?.rootViewController!.present(alertController, animated: true,completion: nil)
+    }
+    
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Swift.Void) {
         guard let action = ActionType(rawValue: response.actionIdentifier) else {
             completionHandler()
             return
         }
-        
-        switch action {
-        case .waddup, .holla, .yo, .word, .sup:
-            if let viewController = window?.rootViewController as? ViewController {
-                           }
-            else {
-                           }
-            completionHandler()
-        }
+        print("收到回应")
+       
     }
+    
+    
+    
     
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         completionHandler([.alert])
