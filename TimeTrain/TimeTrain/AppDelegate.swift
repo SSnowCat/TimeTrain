@@ -127,29 +127,63 @@ extension AppDelegate {
 
 extension AppDelegate: UNUserNotificationCenterDelegate {
     
-    func application(_ application: UIApplication,didReceive notification: UILocalNotification) {
-        //设定Badge数目
-        UIApplication.shared.applicationIconBadgeNumber = 0
-        
-        let info = notification.userInfo as! [String:Int]
-        let number = info["ItemID"]
-        
-        let alertController = UIAlertController(title: "本地通知",
-                                                message: "消息内容：\(notification.alertBody)用户数据：\(number)",
-            preferredStyle: .alert)
-        
-        self.window?.rootViewController!.present(alertController, animated: true,completion: nil)
+    func getContext () -> NSManagedObjectContext {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        return appDelegate.persistentContainer.viewContext
     }
+
     
-    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Swift.Void) {
-        guard let action = ActionType(rawValue: response.actionIdentifier) else {
-            completionHandler()
-            return
-        }
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        let alertController = UIAlertController(title: "主人，该吃药啦！", message: "你的任务完成了吗？", preferredStyle: UIAlertControllerStyle.alert)
+        let view = self.window?.rootViewController
+        print("收到响应")
+        print(response.notification.request.content.subtitle)
         print("收到回应")
-       
+        
+        
+        let finishAction = UIAlertAction(title: "完成啦", style: .default) { (UIAlertAction) -> Void in
+            let mainStoryboard = UIStoryboard(name:"Main", bundle:nil)
+            let viewController = mainStoryboard.instantiateViewController(withIdentifier: "AnimationView")
+            view?.present(viewController, animated: true, completion:nil)
+            let time: TimeInterval = 10.0
+            let content = self.getContext()
+            let conditionl = response.notification.request.content.subtitle
+            let condition = "theme=\(conditionl)"
+            let predicate = NSPredicate(format: condition, "")
+            let entity = NSEntityDescription.entity(forEntityName: "TimeTrainInfo", in: content)
+            let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "TimeTrainInfo")
+            fetchRequest.predicate = predicate
+            fetchRequest.entity = entity
+            do {
+                
+                let searchResults = try self.getContext().fetch(fetchRequest) as! [TimeTrainInfo] as NSArray
+                if searchResults.count != 0 {
+                    let timeTrain = searchResults[0] as! TimeTrainInfo
+                    timeTrain.isFinish = "1"
+                    try content.save()
+                    print("fix success")
+                }else{
+                    print("fix faild")
+                }
+                
+            }catch  {
+                print(error)
+            }
+
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + time) {
+                //code
+                
+                print("10 秒后输出")
+                view?.dismiss(animated: true, completion:nil)
+            }
+        }
+        let notFinishAction = UIAlertAction(title: "没有完成", style: .default, handler: nil)
+        
+        alertController.addAction(finishAction)
+        alertController.addAction(notFinishAction)
+        
+               view?.present(alertController, animated: true, completion: nil)
     }
-    
     
     
     

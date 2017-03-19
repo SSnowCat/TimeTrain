@@ -64,9 +64,32 @@ class thirdViewController: UIViewController,UITableViewDataSource,UITableViewDel
     }
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
+            let context = getContext()
+            let conditionl = infoList[indexPath.row]["theme"]!
+            let condition = "theme='\(conditionl)'"
+            let predicate = NSPredicate(format: condition, "")
             // Delete the row from the data source
             infoList.remove(at: indexPath.row)
+            
             tableView.deleteRows(at: [indexPath], with: .fade)
+            let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "TimeTrainInfo")
+            fetchRequest.predicate = predicate
+            do {
+                
+                let searchResults = try getContext().fetch(fetchRequest) as! [TimeTrainInfo] as NSArray
+                if searchResults.count != 0 {
+                    context.delete(searchResults[0] as! NSManagedObject)
+                    try context.save()
+                    print("delete success")
+                }else{
+                    print("delete faild")
+                }
+                
+            }catch  {
+                print(error)
+            }
+            
+            
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }
@@ -119,7 +142,9 @@ class thirdViewController: UIViewController,UITableViewDataSource,UITableViewDel
         }
 
     }
+   
     
+       
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         let pillmodel = pillModel()

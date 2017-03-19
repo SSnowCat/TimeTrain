@@ -11,7 +11,7 @@ import UserNotifications
 
 class sendNotification: NSObject {
     
-    func sendNotificationWithSava(a : Int){
+    func sendNotificationWithSava(a : Int,str:String){
         
         let center = UNUserNotificationCenter.current()
         
@@ -30,7 +30,8 @@ class sendNotification: NSObject {
             }
             let content = UNMutableNotificationContent()
             content.title = NSString.localizedUserNotificationString(forKey: "你的药到了!", arguments: nil)
-            content.subtitle = NSString.localizedUserNotificationString(forKey: "快来吃药啦", arguments: nil)
+            //content.subtitle = NSString.localizedUserNotificationString(forKey: "快来吃药啦", arguments: nil)
+            content.subtitle = str
             content.body = NSString.localizedUserNotificationString(forKey: "是时候检查主人的任务完成没有啦", arguments: nil)
             content.sound = UNNotificationSound.default()
             content.categoryIdentifier = NotificationType.serviceExtension.rawValue

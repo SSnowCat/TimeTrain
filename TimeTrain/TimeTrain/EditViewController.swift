@@ -128,9 +128,9 @@ class EditViewController: UIViewController ,UITextViewDelegate{
         do {
             let sendNoti:sendNotification? = sendNotification()
             if timeInterval == "现在" {
-                sendNoti?.sendNotificationWithSava(a: 10)
+                sendNoti?.sendNotificationWithSava(a: 10,str:theme)
             }else{
-                sendNoti?.sendNotificationWithSava(a: TimeIntervaNum!)
+                sendNoti?.sendNotificationWithSava(a: TimeIntervaNum!,str:theme)
             }
             try context.save()
             print("saved")
