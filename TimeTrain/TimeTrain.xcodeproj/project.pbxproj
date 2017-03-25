@@ -27,6 +27,8 @@
 		105F26FC1E5AB05A00BCE984 /* TimeTrainUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105F26FB1E5AB05A00BCE984 /* TimeTrainUITests.swift */; };
 		106F02C61E741238000B5672 /* sendNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106F02C51E741238000B5672 /* sendNotification.swift */; };
 		107061581E77DB9100A7439C /* AnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107061571E77DB9100A7439C /* AnimationViewController.swift */; };
+		1083AD1C1E865F190083A112 /* textfiled.png in Resources */ = {isa = PBXBuildFile; fileRef = 1083AD1B1E865F190083A112 /* textfiled.png */; };
+		1083AD1E1E867A2D0083A112 /* 制造胶囊.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1083AD1D1E867A2D0083A112 /* 制造胶囊.jpg */; };
 		108B8B0B1E6A563400D3969D /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108B8B091E6A563400D3969D /* CollectionViewCell.swift */; };
 		108B8B0C1E6A563400D3969D /* CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 108B8B0A1E6A563400D3969D /* CollectionViewCell.xib */; };
 		108B8B0F1E6A58F900D3969D /* pillModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108B8B0E1E6A58F900D3969D /* pillModel.swift */; };
@@ -82,6 +84,8 @@
 		105F26FD1E5AB05A00BCE984 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		106F02C51E741238000B5672 /* sendNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = sendNotification.swift; sourceTree = "<group>"; };
 		107061571E77DB9100A7439C /* AnimationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationViewController.swift; sourceTree = "<group>"; };
+		1083AD1B1E865F190083A112 /* textfiled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = textfiled.png; sourceTree = "<group>"; };
+		1083AD1D1E867A2D0083A112 /* 制造胶囊.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "制造胶囊.jpg"; sourceTree = "<group>"; };
 		108B8B091E6A563400D3969D /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		108B8B0A1E6A563400D3969D /* CollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollectionViewCell.xib; sourceTree = "<group>"; };
 		108B8B0E1E6A58F900D3969D /* pillModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = pillModel.swift; sourceTree = "<group>"; };
@@ -186,6 +190,8 @@
 		108B8B081E6A4B2700D3969D /* image */ = {
 			isa = PBXGroup;
 			children = (
+				1083AD1D1E867A2D0083A112 /* 制造胶囊.jpg */,
+				1083AD1B1E865F190083A112 /* textfiled.png */,
 				1035E6391E6D6A7E00D150C0 /* h1.png */,
 				1035E63B1E6D6A7E00D150C0 /* h3.png */,
 				101513211E7A4B6C00C95FEE /* 完成的.png */,
@@ -320,9 +326,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				101513241E7A4B6C00C95FEE /* 完成的.png in Resources */,
+				1083AD1C1E865F190083A112 /* textfiled.png in Resources */,
 				1015132B1E7A55DC00C95FEE /* DetailPillViewView.xib in Resources */,
 				101513271E7A4E8100C95FEE /* 底.png in Resources */,
 				1035E6401E6D6A7E00D150C0 /* h3.png in Resources */,
+				1083AD1E1E867A2D0083A112 /* 制造胶囊.jpg in Resources */,
 				101513251E7A4B6C00C95FEE /* 未完成的.png in Resources */,
 				1035E63E1E6D6A7E00D150C0 /* h1.png in Resources */,
 				105F26E61E5AB05A00BCE984 /* LaunchScreen.storyboard in Resources */,
@@ -523,6 +531,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 3EFZZXFD7H;
 				INFOPLIST_FILE = TimeTrain/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Snow.ender.Baby.TimeTrain;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -536,6 +545,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 3EFZZXFD7H;
 				INFOPLIST_FILE = TimeTrain/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Snow.ender.Baby.TimeTrain;
 				PRODUCT_NAME = "$(TARGET_NAME)";
