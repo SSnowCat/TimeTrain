@@ -99,6 +99,22 @@ class ViewController: UIViewController {
         
        
     }
+    @IBAction func testalert(_ sender: Any) {
+        
+        ZuberAlert().showAlert("小提示", subTitle: "这是一个测试的小提示", buttonTitle: "取消", otherButtonTitle: "确认") { (OtherButton) -> Void in
+            print("执行了确认")
+            
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
+            //code
+            print("10 秒后输出")
+            self.dismiss(animated: true, completion:nil)
+        }
+
+    }
+    
+  
 
 
 }

@@ -128,8 +128,7 @@ extension AppDelegate {
 extension AppDelegate: UNUserNotificationCenterDelegate {
     
     func getContext () -> NSManagedObjectContext {
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        return appDelegate.persistentContainer.viewContext
+        return self.persistentContainer.viewContext
     }
 
     
@@ -148,14 +147,28 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
             let time: TimeInterval = 10.0
             let content = self.getContext()
             let conditionl = response.notification.request.content.subtitle
-            let condition = "theme=\(conditionl)"
+            let condition = "theme='\(conditionl)'"
             let predicate = NSPredicate(format: condition, "")
             let entity = NSEntityDescription.entity(forEntityName: "TimeTrainInfo", in: content)
             let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "TimeTrainInfo")
-            fetchRequest.predicate = predicate
             fetchRequest.entity = entity
-            do {
+            fetchRequest.predicate = predicate
+            
+            do{
+                let searchResults = try content.fetch(fetchRequest) as! [TimeTrainInfo] as NSArray
+                if searchResults.count != 0 {
+                    let timeTrain = searchResults[0] as! TimeTrainInfo
+                    timeTrain.isFinish = "1"
+                    try content.save()
+                    print("fix success")
+                }else{
+                    print("fix faild")
+                }
                 
+            }catch{
+                print(error)
+            }
+           /* do {
                 let searchResults = try self.getContext().fetch(fetchRequest) as! [TimeTrainInfo] as NSArray
                 if searchResults.count != 0 {
                     let timeTrain = searchResults[0] as! TimeTrainInfo
@@ -169,7 +182,7 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
             }catch  {
                 print(error)
             }
-
+*/
             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + time) {
                 //code
                 

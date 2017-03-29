@@ -77,6 +77,7 @@ class EditViewController: UIViewController ,UITextViewDelegate{
         let minute = diffComponents.minute!
         let seconds = diffComponents.second!
         
+        
        
       
         
@@ -130,10 +131,16 @@ class EditViewController: UIViewController ,UITextViewDelegate{
         timeTrainInfo.setValue(isFinish, forKey: "isFinish")
 
         
+        
+       
+        
+            
+    
+       
         do {
             let sendNoti:sendNotification? = sendNotification()
             if timeInterval == "现在" {
-                sendNoti?.sendNotificationWithSava(a: 10,str:theme)
+                sendNoti?.sendNotificationWithSava(a: 10,str: theme)
             }else{
                 sendNoti?.sendNotificationWithSava(a: TimeIntervaNum!,str:theme)
             }
@@ -142,6 +149,7 @@ class EditViewController: UIViewController ,UITextViewDelegate{
         }catch{
             print(error)
         }
+ 
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
