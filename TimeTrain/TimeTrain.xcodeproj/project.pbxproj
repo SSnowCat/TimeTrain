@@ -27,6 +27,12 @@
 		105F26FC1E5AB05A00BCE984 /* TimeTrainUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105F26FB1E5AB05A00BCE984 /* TimeTrainUITests.swift */; };
 		106F02C61E741238000B5672 /* sendNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106F02C51E741238000B5672 /* sendNotification.swift */; };
 		107061581E77DB9100A7439C /* AnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107061571E77DB9100A7439C /* AnimationViewController.swift */; };
+		107B1D801E9C71A40077B494 /* timeLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107B1D7F1E9C71A40077B494 /* timeLineView.swift */; };
+		107B1DD61E9CC24D0077B494 /* 图标.png in Resources */ = {isa = PBXBuildFile; fileRef = 107B1DD51E9CC24D0077B494 /* 图标.png */; };
+		107B1DDA1E9CC25E0077B494 /* address.png in Resources */ = {isa = PBXBuildFile; fileRef = 107B1DD71E9CC25E0077B494 /* address.png */; };
+		107B1DDB1E9CC25E0077B494 /* book.png in Resources */ = {isa = PBXBuildFile; fileRef = 107B1DD81E9CC25E0077B494 /* book.png */; };
+		107B1DDC1E9CC25E0077B494 /* message.png in Resources */ = {isa = PBXBuildFile; fileRef = 107B1DD91E9CC25E0077B494 /* message.png */; };
+		107B1DDE1E9CDFDA0077B494 /* timeLineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107B1DDD1E9CDFDA0077B494 /* timeLineViewController.swift */; };
 		107CFC5A1E8B51C000062B1B /* CoraDataDeal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107CFC591E8B51C000062B1B /* CoraDataDeal.swift */; };
 		1083AD1C1E865F190083A112 /* textfiled.png in Resources */ = {isa = PBXBuildFile; fileRef = 1083AD1B1E865F190083A112 /* textfiled.png */; };
 		1083AD1E1E867A2D0083A112 /* 制造胶囊.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1083AD1D1E867A2D0083A112 /* 制造胶囊.jpg */; };
@@ -86,6 +92,12 @@
 		105F26FD1E5AB05A00BCE984 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		106F02C51E741238000B5672 /* sendNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = sendNotification.swift; sourceTree = "<group>"; };
 		107061571E77DB9100A7439C /* AnimationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationViewController.swift; sourceTree = "<group>"; };
+		107B1D7F1E9C71A40077B494 /* timeLineView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = timeLineView.swift; sourceTree = "<group>"; };
+		107B1DD51E9CC24D0077B494 /* 图标.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "图标.png"; sourceTree = "<group>"; };
+		107B1DD71E9CC25E0077B494 /* address.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = address.png; sourceTree = "<group>"; };
+		107B1DD81E9CC25E0077B494 /* book.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = book.png; sourceTree = "<group>"; };
+		107B1DD91E9CC25E0077B494 /* message.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = message.png; sourceTree = "<group>"; };
+		107B1DDD1E9CDFDA0077B494 /* timeLineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = timeLineViewController.swift; sourceTree = "<group>"; };
 		107CFC591E8B51C000062B1B /* CoraDataDeal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoraDataDeal.swift; sourceTree = "<group>"; };
 		1083AD1B1E865F190083A112 /* textfiled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = textfiled.png; sourceTree = "<group>"; };
 		1083AD1D1E867A2D0083A112 /* 制造胶囊.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "制造胶囊.jpg"; sourceTree = "<group>"; };
@@ -171,6 +183,8 @@
 				107061571E77DB9100A7439C /* AnimationViewController.swift */,
 				101513341E7A99A300C95FEE /* DetailHistoryViewController.swift */,
 				107CFC591E8B51C000062B1B /* CoraDataDeal.swift */,
+				107B1D7F1E9C71A40077B494 /* timeLineView.swift */,
+				107B1DDD1E9CDFDA0077B494 /* timeLineViewController.swift */,
 			);
 			path = TimeTrain;
 			sourceTree = "<group>";
@@ -196,6 +210,10 @@
 		108B8B081E6A4B2700D3969D /* image */ = {
 			isa = PBXGroup;
 			children = (
+				107B1DD71E9CC25E0077B494 /* address.png */,
+				107B1DD81E9CC25E0077B494 /* book.png */,
+				107B1DD91E9CC25E0077B494 /* message.png */,
+				107B1DD51E9CC24D0077B494 /* 图标.png */,
 				1083AD1D1E867A2D0083A112 /* 制造胶囊.jpg */,
 				1083AD1B1E865F190083A112 /* textfiled.png */,
 				1035E6391E6D6A7E00D150C0 /* h1.png */,
@@ -337,12 +355,16 @@
 				101513271E7A4E8100C95FEE /* 底.png in Resources */,
 				1035E6401E6D6A7E00D150C0 /* h3.png in Resources */,
 				1083AD1E1E867A2D0083A112 /* 制造胶囊.jpg in Resources */,
+				107B1DDB1E9CC25E0077B494 /* book.png in Resources */,
 				101513251E7A4B6C00C95FEE /* 未完成的.png in Resources */,
+				107B1DDA1E9CC25E0077B494 /* address.png in Resources */,
 				1035E63E1E6D6A7E00D150C0 /* h1.png in Resources */,
 				105F26E61E5AB05A00BCE984 /* LaunchScreen.storyboard in Resources */,
 				105F26E31E5AB05A00BCE984 /* Assets.xcassets in Resources */,
+				107B1DDC1E9CC25E0077B494 /* message.png in Resources */,
 				105F26E11E5AB05A00BCE984 /* Main.storyboard in Resources */,
 				108B8B0C1E6A563400D3969D /* CollectionViewCell.xib in Resources */,
+				107B1DD61E9CC24D0077B494 /* 图标.png in Resources */,
 				102BE1AF1E5F003B00DF8449 /* 1.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -369,6 +391,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				101513351E7A99A300C95FEE /* DetailHistoryViewController.swift in Sources */,
+				107B1DDE1E9CDFDA0077B494 /* timeLineViewController.swift in Sources */,
 				105F26DE1E5AB05A00BCE984 /* ViewController.swift in Sources */,
 				105F26DC1E5AB05A00BCE984 /* AppDelegate.swift in Sources */,
 				10AD44211E8B4093008D30F0 /* ZuberAlert.swift in Sources */,
@@ -386,6 +409,7 @@
 				D8A398B21E6DAE3F006EC17E /* InfoTableViewCell.swift in Sources */,
 				107CFC5A1E8B51C000062B1B /* CoraDataDeal.swift in Sources */,
 				102BE1BD1E5F0C0100DF8449 /* secondView.swift in Sources */,
+				107B1D801E9C71A40077B494 /* timeLineView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
