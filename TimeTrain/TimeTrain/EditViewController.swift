@@ -35,6 +35,10 @@ class EditViewController: UIViewController ,UITextViewDelegate{
     }
    
     
+    
+    
+    
+    
     @IBAction func save(_ sender: Any) {
         if (themeText.text?.isEmpty)! {
             let alert = UIAlertController(title: "提示", message: "主题为空", preferredStyle: .alert)
